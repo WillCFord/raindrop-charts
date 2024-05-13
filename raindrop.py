@@ -24,7 +24,7 @@ def make_raindrop_chart(
 
     grouping_frequency = pd.Timedelta(frequency_value, unit=frequency_unit)
     split_frequency = pd.Timedelta(grouping_frequency.total_seconds() / 2, unit="s")
-
+    print(df.head())
     ohlc = df.groupby(pd.Grouper(key="Datetime", freq=grouping_frequency)).agg(
         Open=("Open", "first"),
         High=("High", "max"),
